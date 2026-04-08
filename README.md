@@ -3,7 +3,7 @@
 
 # Python Security Tools
 
-A collection of Python scripts for common security operations tasks network reconnaissance, log analysis, and file integrity monitoring. Built as hands-on portfolio projects while completing my B.S. in Cybersecurity at WGU.
+A collection of Python scripts for common security operations tasks network reconnaissance, log analysis, and file integrity monitoring. Built as hands-on portfolio projects.
 
 ## Tools
 

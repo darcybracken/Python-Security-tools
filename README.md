@@ -16,11 +16,11 @@ A collection of Python scripts for common security operations tasks network reco
 ## Requirements
 
 - Python 3.8+
-- No external dependencies — all scripts use the Python standard library
+- No external dependencies: all scripts use the Python standard library
 
 ## About
 
-These tools are intentionally simple and dependency-free. In a real SOC, you would use Nmap, Splunk, and OSSEC/Wazuh for these tasks. The goal here is to demonstrate understanding of what those tools do under the hood and the ability to automate security workflows in Python.
+These tools are intentionally simple and dependency-free. In a real SOC, I would use Nmap, Splunk, and OSSEC/Wazuh for these tasks. My goal here is to show my understanding of what those tools do behind the scenes and my ability to automate security workflows in Python.
 
 ## Author
 

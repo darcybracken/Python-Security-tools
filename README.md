@@ -20,7 +20,7 @@ A collection of Python scripts for common security operations tasks network reco
 
 ## About
 
-These tools are intentionally simple and dependency-free. In a real SOC, I would use Nmap, Splunk, and OSSEC/Wazuh for these tasks. My goal here is to show my understanding of what those tools do behind the scenes and my ability to automate security workflows in Python.
+These tools are intentionally designed to be simple and free from dependencies. In a real-world Security Operations Center (SOC), I would use Nmap, Splunk, and OSSEC/Wazuh for these tasks. My objective here is to demonstrate my comprehension of the inner workings of these tools and my proficiency in automating security workflows using Python.
 
 ## Author
 

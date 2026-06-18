@@ -13,7 +13,7 @@ This script uses only the Python standard library, so it runs anywhere Python is
 - **TCP connect scanning** - attempts a full TCP handshake on each port using Python sockets. If the connection succeeds, the port is open. If it times out or is refused, the port is closed or filtered.
 - **Service identification** - maps open ports to common service names (SSH on 22, HTTP on 80, RDP on 3389, etc.) so you can immediately see what is running without a separate lookup.
 - **Flexible port targeting** - supports individual ports (`22,80,443`), ranges (`1-1024`), or a mix of both.
-- **CSV export** — outputs results to a CSV file for documentation or for feeding into other tools during an assessment.
+- **CSV export** - outputs results to a CSV file for documentation or for feeding into other tools during an assessment.
 
 ## Usage
 

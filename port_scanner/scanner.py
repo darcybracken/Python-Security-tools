@@ -48,12 +48,31 @@ COMMON_SERVICES = {
 def parse_port_range(port_string):
     """Parse a port range string like '1-1024' or '80,443,8080' into a list of ports."""
     ports = []
-    for part in port_string.split(","):
-        if "-" in part:
-            start, end = part.split("-", 1)
-            ports.extend(range(int(start), int(end) + 1))
-        else:
-            ports.append(int(part))
+    try:
+        for part in port_string.split(","):
+            if "-" in part:
+                start, end = part.split("-", 1)
+                start = int(start)
+                end = int(end)
+
+                if start > end:
+                    raise ValueError(f"invalid range: {start}-{end} (start > end)")
+
+                if not (1 <= start <= 65535 and 1 <= end <= 65535):
+                    raise ValueError(f"ports must be in range 1-65535: {start}-{end}")
+
+                ports.extend(range(start, end + 1))
+            else:
+                port = int(part)
+
+                if not (1 <= port <= 65535):
+                    raise ValueError(f"port must be in range 1-65535: {port}")
+
+                ports.append(port)
+    except ValueError as e:
+        print(f"[ERROR] Invalid port specification: {e}")
+        sys.exit(1)
+
     return sorted(set(ports))
 
 

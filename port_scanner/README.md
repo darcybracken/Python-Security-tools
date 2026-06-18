@@ -31,3 +31,13 @@ python scanner.py scanme.nmap.org --ports 1-100 --timeout 1.0 --output results.c
 ## What I Learned
 
 The biggest takeaway was how much a timeout value affects scan speed and accuracy. Too low and you miss ports on slower networks. Too high, and a full range scan takes forever. Nmap solves this with adaptive timing. This script uses a fixed timeout, which made me appreciate the engineering behind production scanning tools. I also learned why TCP connect scans are "noisy" compared to SYN scans: every open port gets a full three-way handshake, which means the target logs every connection attempt.
+
+## Known Limitations
+
+- **IPv4 only.** Host resolution uses `socket.gethostbyname`, which resolves to a single IPv4 address. IPv6 targets are not supported, and hostnames with multiple A/AAAA records are collapsed to one address. For a learning tool focused on loopback and small lab targets this is acceptable; production scanning (Nmap) handles dual-stack and round-robin DNS.
+- **TCP connect scan only.** No SYN/stealth scanning. Every open port completes a full three-way handshake, so scans are logged by the target. This is intentional and documented under "What I Learned" above.
+- **Fixed timeout.** No adaptive timing. A single `--timeout` applies to every port.
+
+## Input Validation
+
+`--ports` input is validated before scanning. Reversed ranges (e.g. `10-1`), non-numeric values (e.g. `foo`), and ports outside `1-65535` are rejected with a clear error and a clean exit rather than crashing mid-scan.
